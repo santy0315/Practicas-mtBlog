@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "metblog-20a1c": {
+      "hosting": {
+        "mtBlog": [
+          "metblog-20a1c"
+        ]
+      }
+    }
+  }
+}

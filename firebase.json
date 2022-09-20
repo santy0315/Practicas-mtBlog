@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "mtBlog",
+      "public": "dist/mtBlog",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

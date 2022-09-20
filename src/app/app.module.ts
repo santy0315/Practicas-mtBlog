@@ -9,6 +9,14 @@ import { PostComponent } from './component/posts/post/post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ToolbarComponent } from './shared/component/toolbar/toolbar.component';
+
+/* Firebase */
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire';   
+
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +26,19 @@ import { ToolbarComponent } from './shared/component/toolbar/toolbar.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
     AppRoutingModule,
     NewPostModule,
-    BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+
+
   ],
-  providers: [],
+  providers: [
+    {provide: StorageBucket, useValue: 'gs://metblog-20a1c.appspot.com'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
