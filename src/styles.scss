@@ -8,3 +8,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .active{
     border: 1px solid #f5f5f5;
 }
+
+.container-spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.tag1{
+    background: blue !important;   
+}
+.tag2{
+    background: orangered !important;
+}
+.tag3{
+    background: red !important;
+}
+
+mat-chip.mat-chip.mat-primary.mat-standard-chip {
+    min-height: 1rem;
+    padding: 9px;
+}
