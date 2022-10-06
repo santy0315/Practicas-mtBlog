@@ -10,7 +10,9 @@ import {
   MatListModule,
   MatProgressSpinnerModule,
   MatDividerModule,
-  MatChipsModule
+  MatChipsModule,
+  MatInputModule,
+  MatFormFieldModule
 } from '@angular/material';
 
 
@@ -24,7 +26,9 @@ const myModule = [
   MatListModule,
   MatProgressSpinnerModule,
   MatDividerModule,
-  MatChipsModule
+  MatChipsModule, 
+  MatInputModule,
+  MatFormFieldModule
 
 ]
 
