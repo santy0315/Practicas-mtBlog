@@ -12,7 +12,10 @@ import {
   MatDividerModule,
   MatChipsModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
 } from '@angular/material';
 
 
@@ -28,7 +31,10 @@ const myModule = [
   MatDividerModule,
   MatChipsModule, 
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
 
 ]
 
