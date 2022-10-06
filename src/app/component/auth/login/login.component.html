@@ -3,15 +3,15 @@
     <mat-card-title>Iniciar sesión</mat-card-title>
     
     <mat-card-content>
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
             <p>
                 <mat-form-field>
-                    <input type="text" matInput placeholder="Nombre de usuario">
+                    <input type="text" matInput placeholder="Nombre de usuario" formControlName="email">
                 </mat-form-field>
             </p>
             <p>
                 <mat-form-field>
-                    <input type="password" matInput placeholder="Contraseña">
+                    <input type="password" matInput placeholder="Contraseña" formControlName="password">
                 </mat-form-field>
             </p>
             <button type="submit" mat-raised-button color="primary"> Iniciar sesión </button>
