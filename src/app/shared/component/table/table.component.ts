@@ -4,7 +4,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { PostService } from '../../../component/posts/post.service';
 import { PostI } from '../../models/post.interface';
+
 import Swal from 'sweetalert2';
+
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './../modal/modal.component';
 
 export interface PeriodicElement {
   name: string;
@@ -24,10 +28,10 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['titlePost', 'tagsPost', 'actions'];
   dataSource = new MatTableDataSource();
-   @ViewChild(MatPaginator, {static: true})paginator: MatPaginator;
-   @ViewChild(MatSort, {static: true})sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
-  constructor(private postSvc: PostService) { }
+  constructor(private postSvc: PostService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.postSvc
@@ -47,12 +51,12 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   onEditPost(post: PostI) {
     console.log('Edit post', post);
-    
+
   }
 
   onDeletePost(post: PostI) {
     console.log('Delete post', post);
-    
+
     Swal.fire({
       title: 'Estás seguro?',
       text: `No podrás revertir esto`,
@@ -78,8 +82,16 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   onNewPost() {
     console.log('New post');
-    
+    this.openDialog();
+
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result ${result}`);
+    });
 
+
+  }
 }

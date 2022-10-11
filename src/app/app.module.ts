@@ -19,6 +19,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerAppComponent } from './component/pages/container-app/container-app.component';
+import { ModalComponent } from './shared/component/modal/modal.component';
 
 
 
@@ -28,7 +29,8 @@ import { ContainerAppComponent } from './component/pages/container-app/container
     NewPostComponent,
     PostComponent,
     ToolbarComponent,
-    ContainerAppComponent
+    ContainerAppComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,7 @@ import { ContainerAppComponent } from './component/pages/container-app/container
 
 
   ],
+  entryComponents:[ModalComponent],
   providers: [
     {provide: StorageBucket, useValue: 'gs://metblog-20a1c.appspot.com'}
   ],
