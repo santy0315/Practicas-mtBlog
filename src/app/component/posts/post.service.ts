@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Action } from 'rxjs/internal/scheduler/Action';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PostI } from '../../shared/models/post.interface';
 
 @Injectable({
@@ -10,22 +10,34 @@ import { PostI } from '../../shared/models/post.interface';
 })
 export class PostService {
 
-  constructor(private afs: AngularFirestore) {}
+  private postsCollection: AngularFirestoreCollection<PostI>;
 
-  public getAllPosts():Observable<PostI[]>{
-    return this.afs.collection('posts')
-    .snapshotChanges()
-    .pipe(
-      map(actions =>
-        actions.map(a =>{
-          const data = a.payload.doc.data() as PostI;
-          const id = a.payload.doc.id;
-          return {id, ...data};
-        })
+  constructor(private afs: AngularFirestore) {
+    this.postsCollection = afs.collection<PostI>('posts');
+  }
+
+  public getAllPosts(): Observable<PostI[]> {
+    return this.postsCollection
+      .snapshotChanges()
+      .pipe(
+        map(actions =>
+          actions.map(a => {
+            const data = a.payload.doc.data() as PostI;
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          })
         )
       )
   }
-  public  getOnePost(id: PostI): Observable <PostI>{
+  public getOnePost(id: PostI): Observable<PostI> {
     return this.afs.doc<PostI>(`posts/${id}`).valueChanges();
-    }
+  }
+  public deletePostById(post: PostI) {
+    return this.postsCollection.doc(post.id).delete();
+  }
+
+  public editPostById(post: PostI,) {
+    return this.postsCollection.doc(post.id).update(post);
+
+  }
 }

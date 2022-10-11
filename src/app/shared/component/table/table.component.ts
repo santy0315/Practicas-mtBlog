@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { PostService } from '../../../component/posts/post.service';
 import { PostI } from '../../models/post.interface';
+import Swal from 'sweetalert2';
 
 export interface PeriodicElement {
   name: string;
@@ -52,6 +53,27 @@ export class TableComponent implements OnInit, AfterViewInit {
   onDeletePost(post: PostI) {
     console.log('Delete post', post);
     
+    Swal.fire({
+      title: 'Estás seguro?',
+      text: `No podrás revertir esto`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, borrarlo!'
+    }).then(result => {
+      if (result.value) {
+        // quiere borrarlo
+        console.log('Delete');
+        this.postSvc.deletePostById(post).then(() => {
+          Swal.fire('Borrado!', 'El post ha sido eliminado.', 'success');
+        }).catch((error) => {
+          Swal.fire('Error!', 'Hubo un error al borrar este post', 'error');
+        });
+      }
+    });
+
+
   }
 
   onNewPost() {
