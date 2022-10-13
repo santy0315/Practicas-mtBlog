@@ -2,7 +2,7 @@
     <a routerLink="/"> {{appName}}</a>
     <span class="fill-remaining-sapace"></span>
 
-    <a routerLink="/admin" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
+    <a routerLink="/admin/profile" routerLinkActive="active" *ngIf="authSvc.userData$ | async">
         <button mat-button>Administrador</button>
     </a>
 
