@@ -20,6 +20,8 @@ import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerAppComponent } from './component/pages/container-app/container-app.component';
 import { ModalComponent } from './shared/component/modal/modal.component';
+import { EditPostComponent } from './component/posts/edit-post/edit-post.component';
+
 
 
 
@@ -30,7 +32,8 @@ import { ModalComponent } from './shared/component/modal/modal.component';
     PostComponent,
     ToolbarComponent,
     ContainerAppComponent,
-    ModalComponent
+    ModalComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { ModalComponent } from './shared/component/modal/modal.component';
     AppRoutingModule,
     NewPostModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
 
 
   ],
