@@ -16,14 +16,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height: 100%;
 }
 
-.tag1{
-    background: gainsboro !important;   
+.WCAG{
+    background: green !important;   
 }
-.tag2{
-    background: paleturquoise !important;
+.PruebasMixtas{
+    background: rebeccapurple !important;
 }
-.tag3{
-    background: whitesmoke !important;
+.Analisisprevio{
+    background: red !important;
+}
+.Usoweb{
+    background: blue !important;
 }
 
 mat-chip.mat-chip.mat-primary.mat-standard-chip {

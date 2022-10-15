@@ -1,6 +1,6 @@
 <div class="container" *ngIf="post$ |async as post; else loading"> 
     <mat-card class="post-card">
-        <img matCardImage class="aling-center" [src]="post.imagePost" />
+       
         <mat-card-content>
             <mat-card-title>
                 {{post.titlePost}}
@@ -9,6 +9,7 @@
                 {{post.contentPost}}
             </p>
         </mat-card-content>
+        <img matCardImage class="aling-center" [src]="post.imagePost" />
     </mat-card>
 </div>
 <ng-template #loading>
