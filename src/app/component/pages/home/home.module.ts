@@ -4,9 +4,12 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import {MaterialModule} from '../../../material.module';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, 
+//    FilterPipe
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
