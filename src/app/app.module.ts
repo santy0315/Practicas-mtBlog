@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewPostComponent } from './component/posts/new-post/new-post.component';
 import { NewPostModule } from './component/posts/new-post/new-post.module';
-import { PostComponent } from './component/posts/post/post.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ToolbarComponent } from './shared/component/toolbar/toolbar.component';
@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ContainerAppComponent } from './component/pages/container-app/container-app.component';
 import { ModalComponent } from './shared/component/modal/modal.component';
 import { EditPostComponent } from './component/posts/edit-post/edit-post.component';
+import { DetailsPostComponent } from './component/posts/details-post/details-post.component';
 
 
 
@@ -29,11 +30,12 @@ import { EditPostComponent } from './component/posts/edit-post/edit-post.compone
   declarations: [
     AppComponent,
     NewPostComponent,
-    PostComponent,
+    
     ToolbarComponent,
     ContainerAppComponent,
     ModalComponent,
-    EditPostComponent
+    EditPostComponent,
+    DetailsPostComponent
   ],
   imports: [
     BrowserModule,
