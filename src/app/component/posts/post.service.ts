@@ -55,6 +55,7 @@ export class PostService {
     const postObj = {
       titlePost: post.titlePost,
       contentPost: post.contentPost,
+      stagesPost: post.stagesPost,
       imagePost: this.downloadURL,
       fileRef: this.filePath,
       tagsPost: post.tagsPost

@@ -18,6 +18,7 @@ export class NewPostComponent implements OnInit {
 
   public newPostForm = new FormGroup({
     titlePost: new FormControl('', Validators.required),
+    stagesPost: new FormControl('', Validators.required),
     contentPost: new FormControl('', Validators.required),
     tagsPost: new FormControl('', Validators.required),
     imagePost: new FormControl('', Validators.required),
